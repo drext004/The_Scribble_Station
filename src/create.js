@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Create = () => {
     const[title, setTitle] = useState('');
     const[body, setBody] = useState('');
     const[author, setAuthor] = useState('mario');
     const[insPending, setIsPending]= useState(false);
+    const history=useHistory();
 
 
     const handleSubmit= (e)=>{
@@ -13,12 +15,14 @@ const Create = () => {
 
         setIsPending(true);
 
-        fetch('http://localhost:8000/blogs', {
+        fetch('http://localhost:8000//api/posts', {
             method:'POST',
             headers: {"content-Type": "application/json"},
             body: JSON.stringify(blog)
         }) .then(()=>{
             setIsPending(false);
+            history.push('/')
+
         })
 
     }
