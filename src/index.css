@@ -45,14 +45,13 @@
   padding: 20px;
 }
 
-.Home {
-
+.home {
   margin-left: 20px;
   margin-top: 80px;
-  /* padding-left: 4000px; */
+  width: 200px;
 }
 
-button{
+.button{
   margin-top: 20px;
 }
 

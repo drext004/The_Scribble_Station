@@ -22,7 +22,8 @@ mongoose.connect('mongodb+srv://atharvdhari217:ahh5dAop46r5vzUf@cluster0.kynz816
 // Post Schema
 const postSchema = new mongoose.Schema({
   title: String,
-  content: String
+  content: String,
+  author: String
 }, { timestamps: true });
 
 const Post = mongoose.model('Post', postSchema);
@@ -53,7 +54,8 @@ app.get('/api/posts/:id', async (req, res) => {
 // POST new post
 app.post('/api/posts', async (req, res) => {
   try {
-    const newPost = new Post(req.body);
+    const { title, body, author } = req.body;
+    const newPost = new Post({ title, content: body, author });
     const saved = await newPost.save();
     res.status(201).json(saved);
   } catch (err) {
@@ -89,5 +91,5 @@ app.delete('/api/posts/:id', async (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+
 });
