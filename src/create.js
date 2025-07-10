@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+
 const Create = () => {
     const[title, setTitle] = useState('');
     const[body, setBody] = useState('');
@@ -15,10 +16,10 @@ const Create = () => {
 
         setIsPending(true);
 
-        fetch ('http://localhost:8000/api/posts',{
-            method:'POST',
-            headers: {"content-Type": "application/json"},
-            body: JSON.stringify(blog)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/posts`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog)
         }) .then(()=>{
             setIsPending(false);
             history.push('/')

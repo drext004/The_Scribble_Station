@@ -3,11 +3,11 @@ import useFetch from './useFetch';
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { data: blog, error, isPending } = useFetch('http://localhost:8000/api/posts/' + id);
+  const { data: blog, error, isPending } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/posts`+ id);
   const history = useHistory();
 
   const handleClick = () => {
-    fetch('http://localhost:8000/api/posts/' + id, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/posts`+id, {
       method: 'DELETE'
     }).then(() => {
       history.push('/');
