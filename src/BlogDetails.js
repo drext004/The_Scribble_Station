@@ -24,7 +24,7 @@ const BlogDetails = () => {
           <h2>{blog.title}</h2>
           {/* Optional: use content or author if it exists */}
           <p>Written by {blog.author || "Unknown Author"}</p>
-          <div>{blog.content}</div>
+          <div className="blog-content">{blog.content}</div>
           <button onClick={handleClick}>Delete</button>
         </article>
       )}

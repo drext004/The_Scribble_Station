@@ -118,3 +118,8 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+
+.blog-content{
+  word-wrap: break-word;
+}
